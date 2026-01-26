@@ -1,0 +1,732 @@
+!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflyne Indonesia - Premium Agricultural Exporter</title>
+    <meta name="description" content="Direct supplier of Indonesian Nutmeg, Cinnamon, Cloves, Banana Leaves, Lemongrass and Ginger. Global shipping with international quality standards.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepForest: '#1B4D3E',  // Darker, more corporate green
+                        spiceTerra: '#C05621',  // Burnt orange/terracotta
+                        goldAccent: '#D69E2E',  // Metallic gold for badges
+                        offWhite: '#F9FAFB',
+                        slateDark: '#1F2937',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'floating': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        
+        /* Smooth Hover for Images */
+        .image-zoom-container { overflow: hidden; }
+        .image-zoom { transition: transform 0.5s ease; }
+        .image-zoom-container:hover .image-zoom { transform: scale(1.05); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1B4D3E; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C05621; }
+    </style>
+</head>
+<body class="bg-white text-slateDark font-sans antialiased selection:bg-spiceTerra selection:text-white">
+
+    <!-- Top Bar (Info Strip) -->
+    <div class="bg-slateDark text-gray-300 py-2 text-xs hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span><i class="fas fa-envelope mr-2 text-spiceTerra"></i> leaflyne.indonesia@gmail.com</span>
+                <span><i class="fas fa-phone mr-2 text-spiceTerra"></i> +62 822 9865 0656</span>
+            </div>
+            <div class="flex space-x-4">
+                <span><i class="fas fa-clock mr-1"></i> Mon - Sat: 08:00 - 17:00 (GMT+7)</span>
+                <span class="text-white font-bold"><i class="fas fa-check-circle text-green-500 mr-1"></i> Verified Exporter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 group cursor-pointer">
+                    <a href="#" class="font-serif text-2xl font-bold text-deepForest tracking-tight flex items-center gap-2">
+                        <i class="fas fa-leaf text-spiceTerra"></i>
+                        Leaflyne <span class="text-spiceTerra">Indonesia</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium text-gray-600 hover:text-deepForest transition hover:-translate-y-0.5">Company</a>
+                    <a href="#products" class="text-sm font-medium text-gray-600 hover:text-deepForest transition hover:-translate-y-0.5">Products</a>
+                    <a href="#logistics" class="text-sm font-medium text-gray-600 hover:text-deepForest transition hover:-translate-y-0.5">Logistics</a>
+                    <a href="#contact" class="bg-deepForest text-white px-6 py-2.5 rounded shadow-md hover:shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 active:scale-95 text-sm font-bold tracking-wide">
+                        Request Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-deepForest hover:text-spiceTerra focus:outline-none text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#about" class="block text-gray-700 font-medium">Company</a>
+                <a href="#products" class="block text-gray-700 font-medium">Products</a>
+                <a href="#logistics" class="block text-gray-700 font-medium">Logistics</a>
+                <a href="#contact" class="block text-spiceTerra font-bold">Request Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[85vh] min-h-[600px] flex items-center bg-gray-900 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070&auto=format&fit=crop" alt="Indonesian Spices Background" class="w-full h-full object-cover opacity-30 scale-105 animate-[pulse_10s_ease-in-out_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl animate-fade-in">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-spiceTerra/20 border border-spiceTerra/30 text-spiceTerra text-xs font-bold uppercase tracking-widest mb-6">
+                    <span class="w-2 h-2 rounded-full bg-spiceTerra animate-ping"></span> Global Supply Chain Partner
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                    Connecting Nature's Finest to the <span class="text-transparent bg-clip-text bg-gradient-to-r from-spiceTerra to-goldAccent">Global Market</span>.
+                </h1>
+                <p class="text-xl text-gray-300 mb-10 font-light leading-relaxed max-w-2xl">
+                    Beyond just <strong>Spices</strong> and <strong>Banana Leaves</strong>, we unlock the full potential of Indonesian agriculture. We source a wide variety of commodities tailored to your industrial needs—<strong>just ask, and we deliver.</strong>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#products" class="bg-spiceTerra text-white px-8 py-4 rounded font-bold text-center hover:bg-orange-700 transition shadow-lg hover:shadow-spiceTerra/50">
+                        Browse Catalogue
+                    </a>
+                    <a href="#contact" class="bg-transparent border border-white text-white px-8 py-4 rounded font-bold text-center hover:bg-white hover:text-deepForest transition">
+                        Partner With Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Corporate Stats Bar -->
+    <div class="bg-deepForest py-12 relative z-20 -mt-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+                <div class="p-2">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">500+</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Partner Farmers</div>
+                </div>
+                <div class="p-2">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Direct Sourcing</div>
+                </div>
+                <div class="p-2">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">Global</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Shipping Reach</div>
+                </div>
+                <div class="p-2">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Support Team</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About / Heritage Section -->
+    <section id="about" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-spiceTerra/10 rounded-full z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1597825595600-b62c76b92f75?q=80&w=2070&auto=format&fit=crop" alt="Lush Indonesian Agricultural Landscape" class="relative z-10 rounded-lg shadow-2xl object-cover h-[500px] w-full grayscale hover:grayscale-0 transition duration-700">
+                    <div class="absolute bottom-8 -right-8 bg-white p-6 rounded-lg shadow-xl max-w-xs border-l-4 border-spiceTerra hidden md:block z-20">
+                        <p class="font-serif italic text-deepForest">"Quality is never an accident; it is always the result of intelligent effort."</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-spiceTerra font-bold tracking-wider uppercase text-sm mb-2 block">Our Heritage</span>
+                    <h2 class="text-4xl font-serif font-bold text-slateDark mb-6">Rooted in Volcanic Soil,<br>Processed for the World.</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-justify">
+                        Leaflyne Indonesia is more than just an exporter; we are the bridge between the rich, volcanic heritage of the Nusantara archipelago and the modern demands of the global industry.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-justify">
+                        Based in Cijeruk, our network of farmers adheres to strict agricultural practices to ensure high essential oil content in our spices and flexibility in our banana leaves. We handle sorting, grading, and packaging with precision to meet international Phytosanitary standards.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-certificate text-deepForest text-xl mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-slateDark">Certified Quality</h4>
+                                <p class="text-sm text-gray-500">Lab tested for moisture & purity.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-hand-holding-usd text-deepForest text-xl mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-slateDark">Competitive Pricing</h4>
+                                <p class="text-sm text-gray-500">Direct-from-farm pricing model.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Catalogue (Detailed B2B) -->
+    <section id="products" class="py-24 bg-offWhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-spiceTerra font-bold tracking-wider uppercase text-sm">Our Commodities</span>
+                <h2 class="text-4xl font-serif font-bold text-slateDark mt-2">Premium Product Catalogue</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
+                    While these are our core exports, our network covers the entire spectrum of Indonesian agriculture. 
+                    <strong>Looking for something else? We can source it for you.</strong>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Nutmeg Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-floating transition duration-300 group">
+                    <div class="h-64 bg-white flex items-center justify-center border-b border-gray-100 relative overflow-hidden">
+                        <img src="https://i.ibb.co.com/hx30tt2r/a108bf439162efae01b614838ccc3b6c.jpg" alt="Nutmeg" class="w-full h-full object-contain p-4 group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-deepForest text-white text-[10px] font-bold px-2 py-1 rounded">HOT SELLER</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-xl text-slateDark mb-1">Nutmeg (Pala)</h3>
+                        <p class="text-xs text-gray-400 italic mb-4">Myristica fragrans</p>
+                        
+                        <div class="space-y-2 text-sm text-gray-600 mb-6 border-t border-gray-100 pt-4">
+                            <div class="flex justify-between"><span>Grade:</span> <span class="font-semibold text-slateDark">ABCD, SS, BWP</span></div>
+                            <div class="flex justify-between"><span>Moisture:</span> <span class="font-semibold text-slateDark">&lt; 12%</span></div>
+                            <div class="flex justify-between"><span>Origin:</span> <span class="font-semibold text-slateDark">Sulawesi/Java</span></div>
+                            <div class="flex justify-between"><span>Pack:</span> <span class="font-semibold text-slateDark">PP Bag / Carton</span></div>
+                        </div>
+
+                        <button onclick="generateInsight('Indonesian Nutmeg', 'insight-nutmeg', this)" class="w-full mb-3 text-xs font-bold text-spiceTerra border border-spiceTerra/20 py-2 rounded hover:bg-spiceTerra hover:text-white transition flex items-center justify-center gap-2">
+                            <i class="fas fa-chart-line"></i> Market Insight
+                        </button>
+                        <div id="insight-nutmeg" class="hidden text-xs bg-gray-50 p-2 rounded mb-3 text-gray-600 border-l-2 border-spiceTerra"></div>
+                        
+                        <a href="#contact" class="block w-full text-center bg-slateDark text-white py-3 rounded font-bold hover:bg-deepForest transition">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Cinnamon Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-floating transition duration-300 group">
+                    <div class="h-64 bg-white flex items-center justify-center border-b border-gray-100 relative overflow-hidden">
+                        <img src="https://i.ibb.co.com/vCW5nFQT/932b84e348a5effe3faac107edfdb195.jpg" alt="Cinnamon" class="w-full h-full object-contain p-4 group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-xl text-slateDark mb-1">Cinnamon (Cassia)</h3>
+                        <p class="text-xs text-gray-400 italic mb-4">Cinnamomum burmannii</p>
+                        
+                        <div class="space-y-2 text-sm text-gray-600 mb-6 border-t border-gray-100 pt-4">
+                            <div class="flex justify-between"><span>Type:</span> <span class="font-semibold text-slateDark">Stick (KA/KB), Powder</span></div>
+                            <div class="flex justify-between"><span>Oil Content:</span> <span class="font-semibold text-slateDark">2.0% - 2.5%</span></div>
+                            <div class="flex justify-between"><span>Length:</span> <span class="font-semibold text-slateDark">6cm - 12cm</span></div>
+                            <div class="flex justify-between"><span>Origin:</span> <span class="font-semibold text-slateDark">Kerinci/Sumatra</span></div>
+                        </div>
+
+                        <button onclick="generateInsight('Indonesian Cinnamon', 'insight-cinnamon', this)" class="w-full mb-3 text-xs font-bold text-spiceTerra border border-spiceTerra/20 py-2 rounded hover:bg-spiceTerra hover:text-white transition flex items-center justify-center gap-2">
+                            <i class="fas fa-chart-line"></i> Market Insight
+                        </button>
+                        <div id="insight-cinnamon" class="hidden text-xs bg-gray-50 p-2 rounded mb-3 text-gray-600 border-l-2 border-spiceTerra"></div>
+
+                        <a href="#contact" class="block w-full text-center bg-slateDark text-white py-3 rounded font-bold hover:bg-deepForest transition">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Cloves Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-floating transition duration-300 group">
+                    <div class="h-64 bg-white flex items-center justify-center border-b border-gray-100 relative overflow-hidden">
+                        <img src="https://i.ibb.co.com/DDvcM8N2/64959b218ec53cc021b472d1b78c0374.jpg" alt="Cloves" class="w-full h-full object-contain p-4 group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-xl text-slateDark mb-1">Cloves (Cengkeh)</h3>
+                        <p class="text-xs text-gray-400 italic mb-4">Syzygium aromaticum</p>
+                        
+                        <div class="space-y-2 text-sm text-gray-600 mb-6 border-t border-gray-100 pt-4">
+                            <div class="flex justify-between"><span>Grade:</span> <span class="font-semibold text-slateDark">Hand Picked / Lalpari</span></div>
+                            <div class="flex justify-between"><span>Color:</span> <span class="font-semibold text-slateDark">Reddish Brown</span></div>
+                            <div class="flex justify-between"><span>Foreign Matter:</span> <span class="font-semibold text-slateDark">&lt; 0.5%</span></div>
+                            <div class="flex justify-between"><span>Origin:</span> <span class="font-semibold text-slateDark">Java/Sulawesi</span></div>
+                        </div>
+
+                        <button onclick="generateInsight('Indonesian Cloves', 'insight-cloves', this)" class="w-full mb-3 text-xs font-bold text-spiceTerra border border-spiceTerra/20 py-2 rounded hover:bg-spiceTerra hover:text-white transition flex items-center justify-center gap-2">
+                            <i class="fas fa-chart-line"></i> Market Insight
+                        </button>
+                        <div id="insight-cloves" class="hidden text-xs bg-gray-50 p-2 rounded mb-3 text-gray-600 border-l-2 border-spiceTerra"></div>
+
+                        <a href="#contact" class="block w-full text-center bg-slateDark text-white py-3 rounded font-bold hover:bg-deepForest transition">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Banana Leaves Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-floating transition duration-300 group">
+                    <div class="h-64 bg-white flex items-center justify-center border-b border-gray-100 relative overflow-hidden">
+                        <img src="https://i.ibb.co.com/Z3XrZh5/6125e7565a540212483df465560a3ddc.jpg" alt="Banana Leaves" class="w-full h-full object-contain p-4 group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-xl text-slateDark mb-1">Banana Leaves</h3>
+                        <p class="text-xs text-gray-400 italic mb-4">Musa balbisiana</p>
+                        
+                        <div class="space-y-2 text-sm text-gray-600 mb-6 border-t border-gray-100 pt-4">
+                            <div class="flex justify-between"><span>Quality:</span> <span class="font-semibold text-slateDark">Stone Banana (Klutuk)</span></div>
+                            <div class="flex justify-between"><span>Feature:</span> <span class="font-semibold text-slateDark">Flexible, High Aroma</span></div>
+                            <div class="flex justify-between"><span>Packing:</span> <span class="font-semibold text-slateDark">Vacuum / Frozen</span></div>
+                            <div class="flex justify-between"><span>Usage:</span> <span class="font-semibold text-slateDark">Culinary Wrapper</span></div>
+                        </div>
+
+                        <button onclick="generateInsight('Indonesian Banana Leaves', 'insight-banana', this)" class="w-full mb-3 text-xs font-bold text-spiceTerra border border-spiceTerra/20 py-2 rounded hover:bg-spiceTerra hover:text-white transition flex items-center justify-center gap-2">
+                            <i class="fas fa-chart-line"></i> Market Insight
+                        </button>
+                        <div id="insight-banana" class="hidden text-xs bg-gray-50 p-2 rounded mb-3 text-gray-600 border-l-2 border-spiceTerra"></div>
+
+                        <a href="#contact" class="block w-full text-center bg-slateDark text-white py-3 rounded font-bold hover:bg-deepForest transition">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Lemongrass (Serai) Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-floating transition duration-300 group">
+                    <div class="h-64 bg-white flex items-center justify-center border-b border-gray-100 relative overflow-hidden">
+                        <img src="https://i.ibb.co.com/hxDCQbYc/a6b4b4aaacd9c9688d06d04ca38074b9.jpg" alt="Lemongrass" class="w-full h-full object-contain p-2 group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-xl text-slateDark mb-1">Lemongrass (Serai)</h3>
+                        <p class="text-xs text-gray-400 italic mb-4">Cymbopogon citratus</p>
+                        
+                        <div class="space-y-2 text-sm text-gray-600 mb-6 border-t border-gray-100 pt-4">
+                            <div class="flex justify-between"><span>Form:</span> <span class="font-semibold text-slateDark">Fresh Stalk / Dried</span></div>
+                            <div class="flex justify-between"><span>Length:</span> <span class="font-semibold text-slateDark">25cm - 30cm</span></div>
+                            <div class="flex justify-between"><span>Color:</span> <span class="font-semibold text-slateDark">Fresh Green / Pale</span></div>
+                            <div class="flex justify-between"><span>Packing:</span> <span class="font-semibold text-slateDark">Mesh Bag / Carton</span></div>
+                        </div>
+
+                        <button onclick="generateInsight('Indonesian Lemongrass', 'insight-lemongrass', this)" class="w-full mb-3 text-xs font-bold text-spiceTerra border border-spiceTerra/20 py-2 rounded hover:bg-spiceTerra hover:text-white transition flex items-center justify-center gap-2">
+                            <i class="fas fa-chart-line"></i> Market Insight
+                        </button>
+                        <div id="insight-lemongrass" class="hidden text-xs bg-gray-50 p-2 rounded mb-3 text-gray-600 border-l-2 border-spiceTerra"></div>
+
+                        <a href="#contact" class="block w-full text-center bg-slateDark text-white py-3 rounded font-bold hover:bg-deepForest transition">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Ginger (Jahe) Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-floating transition duration-300 group">
+                    <div class="h-64 bg-white flex items-center justify-center border-b border-gray-100 relative overflow-hidden">
+                        <img src="https://i.ibb.co.com/Hpq8JdMb/97805c4db6d2e2a09c66943dff342a80.jpg" alt="Ginger" class="w-full h-full object-contain p-4 group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-xl text-slateDark mb-1">Ginger (Jahe)</h3>
+                        <p class="text-xs text-gray-400 italic mb-4">Zingiber officinale</p>
+                        
+                        <div class="space-y-2 text-sm text-gray-600 mb-6 border-t border-gray-100 pt-4">
+                            <div class="flex justify-between"><span>Variety:</span> <span class="font-semibold text-slateDark">Elephant / Emprit</span></div>
+                            <div class="flex justify-between"><span>Condition:</span> <span class="font-semibold text-slateDark">Fresh Washed / Dried</span></div>
+                            <div class="flex justify-between"><span>Size:</span> <span class="font-semibold text-slateDark">100g - 250g UP</span></div>
+                            <div class="flex justify-between"><span>Origin:</span> <span class="font-semibold text-slateDark">West Java</span></div>
+                        </div>
+
+                        <button onclick="generateInsight('Indonesian Ginger', 'insight-ginger', this)" class="w-full mb-3 text-xs font-bold text-spiceTerra border border-spiceTerra/20 py-2 rounded hover:bg-spiceTerra hover:text-white transition flex items-center justify-center gap-2">
+                            <i class="fas fa-chart-line"></i> Market Insight
+                        </button>
+                        <div id="insight-ginger" class="hidden text-xs bg-gray-50 p-2 rounded mb-3 text-gray-600 border-l-2 border-spiceTerra"></div>
+
+                        <a href="#contact" class="block w-full text-center bg-slateDark text-white py-3 rounded font-bold hover:bg-deepForest transition">Inquire Now</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Custom Sourcing Callout (New Feature) -->
+            <div class="mt-16 bg-white border border-dashed border-spiceTerra/30 rounded-xl p-8 text-center shadow-sm">
+                <h3 class="text-2xl font-serif font-bold text-deepForest mb-2">Can't Find What You Need?</h3>
+                <p class="text-gray-600 mb-6 max-w-3xl mx-auto">
+                    Our capabilities extend far beyond this catalogue. From <span class="font-bold text-slateDark">Vanilla Beans</span> and <span class="font-bold text-slateDark">Coffee</span> to <span class="font-bold text-slateDark">Essential Oils</span> and <span class="font-bold text-slateDark">Dried Fruits</span>, we leverage our vast farmer network to fulfill custom agricultural requests.
+                </p>
+                <a href="#contact" class="inline-flex items-center text-spiceTerra font-bold hover:underline">
+                    Ask About Other Products <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logistics & Packaging -->
+    <section id="logistics" class="py-20 bg-deepForest text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold">Global Logistics & Packaging</h2>
+                    <p class="text-gray-300 mt-2">Ensuring your cargo arrives safely and compliant.</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="bg-white/10 px-4 py-2 rounded border border-white/20 text-sm font-bold"><i class="fas fa-ship mr-2"></i> FOB Jakarta / Surabaya</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Packaging 1 -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/10 transition">
+                    <i class="fas fa-box-open text-3xl text-spiceTerra mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Bulk Packaging</h4>
+                    <p class="text-sm text-gray-300">25kg/50kg PP Bags or Jute Bags (Gunny). Double layered for moisture protection.</p>
+                </div>
+                <!-- Packaging 2 -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/10 transition">
+                    <i class="fas fa-cube text-3xl text-spiceTerra mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Carton Boxes</h4>
+                    <p class="text-sm text-gray-300">5kg/10kg/25kg Corrugated Carton Boxes. Ideal for premium Cinnamon and Cloves.</p>
+                </div>
+                <!-- Packaging 3 -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/10 transition">
+                    <i class="fas fa-snowflake text-3xl text-spiceTerra mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Vacuum & Frozen</h4>
+                    <p class="text-sm text-gray-300">Specialized vacuum sealing for Banana Leaves, shipped in Reefer Containers (-18°C).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Trust Building) -->
+    <section class="py-20 bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl font-serif font-bold text-center text-slateDark mb-10">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg p-4 hover:border-spiceTerra transition bg-offWhite">
+                    <h5 class="font-bold text-deepForest mb-1"><i class="fas fa-question-circle mr-2"></i>What are your payment terms?</h5>
+                    <p class="text-sm text-gray-600">We typically accept T/T (50% Deposit, 50% against BL Copy) or Irrevocable L/C at sight for large orders.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 hover:border-spiceTerra transition bg-offWhite">
+                    <h5 class="font-bold text-deepForest mb-1"><i class="fas fa-container-storage mr-2"></i>What is the Minimum Order Quantity (MOQ)?</h5>
+                    <p class="text-sm text-gray-600">Our standard MOQ is 1x20ft Container (approx 10-13 MT depending on commodity). LCL shipments can be negotiated for trial orders.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 hover:border-spiceTerra transition bg-offWhite">
+                    <h5 class="font-bold text-deepForest mb-1"><i class="fas fa-file-contract mr-2"></i>Do you provide export documents?</h5>
+                    <p class="text-sm text-gray-600">Yes, we provide Commercial Invoice, Packing List, Bill of Lading, Certificate of Origin (COO), and Phytosanitary Certificate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Contact Section -->
+    <section id="contact" class="py-24 bg-offWhite">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+                
+                <!-- Contact Info Side -->
+                <div class="md:w-5/12 bg-slateDark text-white p-10 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-spiceTerra rounded-full blur-3xl opacity-20 -mr-10 -mt-10"></div>
+                    
+                    <div>
+                        <h3 class="font-serif text-3xl font-bold mb-6">Let's Talk Business</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            Ready to source premium spices or <strong>any other Indonesian agricultural product</strong>? Even if it's not in the catalogue, simply ask us.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center mr-4 text-spiceTerra"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <div class="text-xs text-gray-400 uppercase">Call / WhatsApp</div>
+                                    <div class="font-bold">+62 822 9865 0656</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center mr-4 text-spiceTerra"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <div class="text-xs text-gray-400 uppercase">Email for Inquiry</div>
+                                    <div class="font-bold">leaflyne.indonesia@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center mr-4 text-spiceTerra"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <div class="text-xs text-gray-400 uppercase">Headquarters</div>
+                                    <div class="font-bold">Cijeruk, Bogor, Indonesia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-white/10">
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="md:w-7/12 p-10">
+                    <form onsubmit="event.preventDefault(); alert('Inquiry Sent Successfully. Our export team will contact you within 24 hours.');" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-deepForest focus:bg-white outline-none transition" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Company</label>
+                                <input type="text" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-deepForest focus:bg-white outline-none transition" placeholder="Company Name">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-deepForest focus:bg-white outline-none transition" placeholder="business@email.com">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="block text-sm font-bold text-gray-700">Inquiry Details</label>
+                                <button type="button" onclick="draftMessage(this)" class="text-xs font-bold text-spiceTerra hover:underline flex items-center gap-1">
+                                    <i class="fas fa-magic"></i> AI Auto-Draft
+                                </button>
+                            </div>
+                            <textarea id="messageBox" rows="4" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-deepForest focus:bg-white outline-none transition" placeholder="Please specify product, grade, quantity (MT), and destination port..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-deepForest text-white py-4 rounded font-bold hover:bg-opacity-90 transition shadow-lg transform active:scale-95">
+                            Send Official Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-slateDark text-white pt-16 pb-8 border-t-4 border-spiceTerra">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Col 1: Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <!-- Corrected Brand Name -->
+                    <h3 class="font-serif text-2xl font-bold mb-4">Leaflyne Ind.</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Premier bridge for Indonesian agricultural exports. Committed to ethical sourcing, sustainability, and international quality standards.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-spiceTerra">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#products" class="hover:text-white transition">Catalogue</a></li>
+                        <li><a href="#logistics" class="hover:text-white transition">Shipping Info</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Products -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-spiceTerra">Products</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Nutmeg (Whole/Shell)</li>
+                        <li>Cinnamon (Cassia)</li>
+                        <li>Cloves (Lalpari)</li>
+                        <li>Banana Leaves</li>
+                        <li>Lemongrass (Serai)</li>
+                        <li>Ginger (Jahe)</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Certs -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-spiceTerra">Compliance</h4>
+                    <div class="flex gap-4 mb-6">
+                        <div class="text-center opacity-70">
+                            <i class="fas fa-certificate text-3xl mb-1 block"></i>
+                            <span class="text-[10px]">HACCP</span>
+                        </div>
+                        <div class="text-center opacity-70">
+                            <i class="fas fa-clipboard-check text-3xl mb-1 block"></i>
+                            <span class="text-[10px]">Phyto</span>
+                        </div>
+                        <div class="text-center opacity-70">
+                            <i class="fas fa-globe text-3xl mb-1 block"></i>
+                            <span class="text-[10px]">Export</span>
+                        </div>
+                    </div>
+                    
+                    <!-- NIB Section -->
+                    <div class="border-t border-white/10 pt-4">
+                        <p class="text-[10px] text-spiceTerra font-bold uppercase mb-1">Nomor Induk Berusaha (NIB)</p>
+                        <p class="font-mono text-sm text-gray-300 tracking-wider">2201260001944</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <!-- Corrected Brand Name -->
+                <p>&copy; 2024 Leaflyne Indonesia. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GEMINI POWERED CHAT WIDGET -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div id="ai-chat-window" class="hidden bg-white w-80 md:w-96 rounded-2xl shadow-2xl border border-gray-100 mb-4 overflow-hidden chat-enter flex flex-col h-[450px]">
+            <div class="bg-deepForest p-4 flex justify-between items-center text-white">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center animate-pulse">
+                        <i class="fas fa-robot text-sm"></i>
+                    </div>
+                    <div>
+                        <!-- Corrected Brand Name -->
+                        <h4 class="font-bold text-sm">Leaflyne Export AI</h4>
+                        <div class="text-[10px] opacity-80 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Online (Gemini 2.5)
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-white/80 hover:text-white"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-3 text-sm scroll-smooth">
+                <div class="flex gap-2">
+                    <div class="w-8 h-8 rounded-full bg-deepForest flex-shrink-0 flex items-center justify-center text-white text-xs"><i class="fas fa-leaf"></i></div>
+                    <div class="bg-white p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-gray-100 text-gray-700">
+                        Hello! I can assist with product specs (moisture, origin), shipping terms (FOB/CIF), or packaging options. How can I help?
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 bg-white border-t border-gray-100">
+                <form onsubmit="event.preventDefault(); sendChatMessage();" class="flex gap-2">
+                    <input id="chat-input" type="text" placeholder="Ask about MOQ, specs..." class="flex-1 bg-gray-100 border-0 rounded-full px-4 py-2 text-sm focus:ring-1 focus:ring-deepForest outline-none text-gray-700 transition-all">
+                    <button type="submit" class="w-9 h-9 rounded-full bg-deepForest text-white flex items-center justify-center hover:bg-spiceTerra transition shadow-sm transform hover:scale-110">
+                        <i class="fas fa-paper-plane text-xs"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="w-14 h-14 bg-deepForest rounded-full shadow-xl flex items-center justify-center text-white hover:bg-spiceTerra transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 group relative z-50">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-deepForest opacity-20 animate-ping"></span>
+            <span class="absolute right-full mr-3 bg-slateDark text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-lg">Chat with AI</span>
+            <i class="fas fa-comment-dots text-2xl relative z-10"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const apiKey = ""; 
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        // Gemini API Config
+        const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+        async function callGemini(prompt) {
+            try {
+                const response = await fetch(GEMINI_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            } catch (e) { return "System busy. Please try again."; }
+        }
+
+        async function generateInsight(product, outputId, btn) {
+            const out = document.getElementById(outputId);
+            out.classList.remove('hidden');
+            out.innerText = "Analyzing market data...";
+            const prompt = `You are an expert B2B agricultural broker. Provide 1 specific, high-value market insight or unique selling point for Indonesian ${product} appealing to an international importer (e.g. essential oil content superiority or harvest season advantage). Keep it under 20 words.`;
+            const result = await callGemini(prompt);
+            out.innerText = result;
+        }
+
+        async function draftMessage(btn) {
+            const box = document.getElementById('messageBox');
+            if(!box.value) { alert("Please type basic requirements first."); return; }
+            const oldText = btn.innerHTML;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Drafting...`;
+            // Corrected Brand Name
+            const prompt = `Rewrite these rough buyer notes into a formal B2B Request for Quotation (RFQ) email body to Leaflyne Indonesia. Notes: "${box.value}". Keep it professional and concise.`;
+            const result = await callGemini(prompt);
+            box.value = result;
+            btn.innerHTML = oldText;
+        }
+
+        function toggleChat() {
+            const chatWindow = document.getElementById('ai-chat-window');
+            chatWindow.classList.toggle('hidden');
+            if(!chatWindow.classList.contains('hidden')) document.getElementById('chat-input').focus();
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            const container = document.getElementById('chat-messages');
+            if (!message) return;
+
+            container.innerHTML += `<div class="flex gap-2 justify-end chat-enter"><div class="bg-deepForest text-white p-3 rounded-l-xl rounded-tr-xl shadow-sm text-sm max-w-[85%]">${message}</div></div>`;
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+
+            const loadingId = 'loading-' + Date.now();
+            container.innerHTML += `<div id="${loadingId}" class="flex gap-2 chat-enter"><div class="w-8 h-8 rounded-full bg-deepForest flex-shrink-0 flex items-center justify-center text-white text-xs"><i class="fas fa-robot"></i></div><div class="bg-white p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-gray-100 text-gray-500 text-sm"><i class="fas fa-circle-notch fa-spin"></i> Processing...</div></div>`;
+            container.scrollTop = container.scrollHeight;
+
+            // Corrected Brand Name
+            const context = `Act as 'Leaflyne Export AI'. We are a premium Indonesian spice exporter (Nutmeg, Cinnamon, Cloves, Banana Leaves, Lemongrass, Ginger) based in Cijeruk. We offer FOB/CIF, 20ft container MOQ, and provide Phytosanitary/COO docs. Answer concisely for a B2B buyer. Question: "${message}"`;
+            const reply = await callGemini(context);
+
+            document.getElementById(loadingId).remove();
+            container.innerHTML += `<div class="flex gap-2 chat-enter"><div class="w-8 h-8 rounded-full bg-deepForest flex-shrink-0 flex items-center justify-center text-white text-xs"><i class="fas fa-leaf"></i></div><div class="bg-white p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-gray-100 text-gray-700">${reply}</div></div>`;
+            container.scrollTop = container.scrollHeight;
+        }
+    </script>
+</body>
+</html>
